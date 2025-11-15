@@ -18,17 +18,17 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasExampleLabel">Add your list</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button id="fechar_canvas" type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body d-flex flex-column gap-2">
     <div class="">
       Fill the input areas with the corresponding text
     </div>
-    <div class="d-flex flex-column gap-2">
-        <input class="form-control" type="text" placeholder="Task name">
-        <textarea class="textarea" rows="10" cols="50" maxlength="440" placeholder="insert your task content here..."></textarea>
-        <button>Adicionar</button>
-    </div>
+    <form  class="d-flex flex-column gap-2" action="">
+            <input id="task" class="form-control" type="text" placeholder="Task name" required>
+            <textarea id="task-content" class="textarea" rows="10" cols="50" maxlength="440" placeholder="insert your task content here..." required></textarea>
+            <button onclick="criar_task()">Adicionar</button>
+    </form>
   </div>
 </div>
 
@@ -41,7 +41,7 @@
                 <th scope="col">Obs</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="conteudo_tabela">
             <tr>
                 <td scope="row"><input type="checkbox"></td>
                 <td scope="row">Build admin console</td>
@@ -63,5 +63,6 @@
         </tbody>
     </table>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
