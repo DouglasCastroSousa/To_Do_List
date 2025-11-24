@@ -8,29 +8,28 @@
 </head>
 <body>
     <header>
-        <h1 class="p-1">To Do List</h1>
-        
-        <a class="btn btn-outline-dark btn-lg meu_botao" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-          Adding list
+        <h1 class="p-1">📒 To Do List</h1>
+        <a id="add_button" class="btn border-black border-2 btn-outline-dark btn-lg meu_botao" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+            <strong>Adding list</strong>
         </a>
     </header>
 
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Add your list</h5>
-    <button id="fechar_canvas" type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body d-flex flex-column gap-2">
-    <div class="">
-      Fill the input areas with the corresponding text
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Add your list</h5>
+            <button id="close_canvas_btn" type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column gap-2">
+            <div class="">
+                Fill the input areas with the corresponding text
+            </div>
+            <form  class="d-flex flex-column gap-2" action="">
+                <input id="canvas-task" class="form-control" type="text" placeholder="Task name" required>
+                <textarea id="canvas-task-content" class="textarea" rows="10" cols="50" maxlength="440" placeholder="insert your task content here..." required></textarea>
+                <button onclick="saving_task()">Save and exit</button>
+            </form>
+        </div>
     </div>
-    <form  class="d-flex flex-column gap-2" action="">
-            <input id="task" class="form-control" type="text" placeholder="Task name" required>
-            <textarea id="task-content" class="textarea" rows="10" cols="50" maxlength="440" placeholder="insert your task content here..." required></textarea>
-            <button onclick="criar_task()">Adicionar</button>
-    </form>
-  </div>
-</div>
 
     <table class="table table-striped table-hover">
         <thead class="table-dark">
@@ -39,26 +38,39 @@
                 <th scope="col">Task name</th>
                 <th scope="col">Due</th>
                 <th scope="col">Obs</th>
+                <th scope="col">Options</th>
             </tr>
         </thead>
-        <tbody id="conteudo_tabela">
+        <tbody id="table-content">
             <tr>
-                <td scope="row"><input type="checkbox"></td>
+                <td scope="row"><input class="form-check-input" type="checkbox"></td>
                 <td scope="row">Acordar cedo</td>
                 <td scope="row">12/11/2025</td>
                 <td scope="row">OBS OBS OBS OBS OBS OBS OBS OBS</td>
+                <td scope="row">
+                    <button class="btn btn-primary px-2 py-1" onclick="editing_line(this)">edit</button>
+                    <button class="btn btn-danger px-2 py-1" onclick="removing_line(this)">delete</button>
+                </td>
             </tr>
             <tr>
-                <td scope="row"><input type="checkbox"></td>
+                <td scope="row"><input class="form-check-input" type="checkbox"></td>
                 <td scope="row">Completar curso</td>
                 <td scope="row">13/11/2025</td>
                 <td scope="row">OBS OBS OBS OBS OBS OBS OBS OBS</td>
+                <td scope="row">
+                    <button class="btn btn-primary px-2 py-1" onclick="editing_line(this)">edit</button>
+                    <button class="btn btn-danger px-2 py-1" onclick="removing_line(this)">delete</button>
+                </td>
             </tr>
             <tr>
-                <td scope="row"><input type="checkbox"></td>
+                <td scope="row"><input class="form-check-input" type="checkbox"></td>
                 <td scope="row">Começar academia</td>
                 <td scope="row">14/11/2025</td>
                 <td scope="row">OBS OBS OBS OBS OBS OBS OBS OBS</td>
+                <td scope="row">
+                    <button class="btn btn-primary px-2 py-1" onclick="editing_line(this)">edit</button>
+                    <button class="btn btn-danger px-2 py-1" onclick="removing_line(this)">delete</button>
+                </td>
             </tr>
         </tbody>
     </table>
